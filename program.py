@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 filepath = input(
     'Please enter the filepath of the file you\'d like to use: \n')
@@ -7,7 +8,7 @@ filepath = input(
 if filepath[0] == '"' and filepath[-1] == '"':
     filepath = filepath[1:-1]
 
-filepath = filepath.replace('\\', '\\\\')
+filepath = Path(filepath)
 df = pd.read_csv(filepath, encoding="utf-8-sig")
 
 # Add Title Column
